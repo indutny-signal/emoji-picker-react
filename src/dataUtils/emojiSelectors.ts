@@ -18,6 +18,14 @@ export function addedIn(emoji: DataEmoji): number {
   return parseFloat(emoji[EmojiProperties.added_in]);
 }
 
+export function sheetX(emoji: DataEmoji): number {
+  return emoji[EmojiProperties.sheetX];
+}
+
+export function sheetY(emoji: DataEmoji): number {
+  return emoji[EmojiProperties.sheetY];
+}
+
 export function emojiName(emoji?: WithName): string {
   if (!emoji) {
     return '';
@@ -115,7 +123,9 @@ function customToRegularEmoji(emoji: CustomEmoji): DataEmoji {
     [EmojiProperties.name]: emoji.names.map(name => name.toLowerCase()),
     [EmojiProperties.unified]: emoji.id.toLowerCase(),
     [EmojiProperties.added_in]: '0',
-    [EmojiProperties.imgUrl]: emoji.imgUrl
+    [EmojiProperties.imgUrl]: emoji.imgUrl,
+    [EmojiProperties.sheetX]: 0,
+    [EmojiProperties.sheetY]: 0
   };
 }
 

@@ -24,7 +24,9 @@ import {
   activeVariationFromUnified,
   emojiHasVariations,
   emojiNames,
-  emojiUnified
+  emojiUnified,
+  sheetX,
+  sheetY
 } from '../dataUtils/emojiSelectors';
 import { parseNativeEmoji } from '../dataUtils/parseNativeEmoji';
 import { setSuggested } from '../dataUtils/suggested';
@@ -183,6 +185,8 @@ function emojiClickOutput(
       imageUrl: emoji.imgUrl,
       isCustom: true,
       names,
+      sheetX: 0,
+      sheetY: 0,
       unified,
       unifiedWithoutSkinTone: unified
     };
@@ -198,6 +202,8 @@ function emojiClickOutput(
     imageUrl: getEmojiUrl(unified, activeEmojiStyle ?? EmojiStyle.APPLE),
     isCustom: false,
     names,
+    sheetX: sheetX(emoji),
+    sheetY: sheetY(emoji),
     unified,
     unifiedWithoutSkinTone: emojiUnified(emoji)
   };

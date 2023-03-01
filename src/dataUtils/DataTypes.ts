@@ -5,7 +5,9 @@ export enum EmojiProperties {
   unified = 'u',
   variations = 'v',
   added_in = 'a',
-  imgUrl = 'imgUrl'
+  imgUrl = 'imgUrl',
+  sheetX = 'x',
+  sheetY = 'y',
 }
 
 export interface DataEmoji extends WithName {
@@ -13,6 +15,8 @@ export interface DataEmoji extends WithName {
   [EmojiProperties.variations]?: string[];
   [EmojiProperties.added_in]: string;
   [EmojiProperties.imgUrl]?: string;
+  [EmojiProperties.sheetX]: number;
+  [EmojiProperties.sheetY]: number;
 }
 
 export type DataEmojis = DataEmoji[];

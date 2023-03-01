@@ -3,7 +3,9 @@ import * as React from 'react';
 import {
   emojiByUnified,
   emojiName,
-  emojiUrlByUnified
+  emojiUrlByUnified,
+  sheetX,
+  sheetY
 } from '../../dataUtils/emojiSelectors';
 import { isCustomEmoji } from '../../typeRefinements/typeRefinements';
 import { EmojiStyle } from '../../types/exposedTypes';
@@ -58,6 +60,8 @@ export function ViewOnlyEmoji({
           style={style}
           emojiName={emojiName(emojiToRender)}
           emojiStyle={emojiStyle}
+          emojiSheetX={sheetX(emojiToRender)}
+          emojiSheetY={sheetY(emojiToRender)}
           lazyLoad={lazyLoad}
           imgUrl={getEmojiUrl(unified, emojiStyle)}
           onError={onError}

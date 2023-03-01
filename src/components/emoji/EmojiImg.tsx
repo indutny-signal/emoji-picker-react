@@ -8,6 +8,8 @@ import { emojiStyles } from './emojiStyles';
 
 export function EmojiImg({
   emojiName,
+  emojiSheetX,
+  emojiSheetY,
   style,
   lazyLoad = false,
   imgUrl,
@@ -15,6 +17,8 @@ export function EmojiImg({
   className
 }: {
   emojiName: string;
+  emojiSheetX?: number;
+  emojiSheetY?: number;
   emojiStyle: EmojiStyle;
   style: React.CSSProperties;
   lazyLoad?: boolean;
@@ -25,6 +29,17 @@ export function EmojiImg({
   return (
     <img
       src={imgUrl}
+      ref={(elem) => {
+        if (!elem) {
+          return;
+        }
+        if (emojiSheetX !== undefined) {
+          elem.style.setProperty('--epr-sheet-x', emojiSheetX.toString());
+        }
+        if (emojiSheetY !== undefined) {
+          elem.style.setProperty('--epr-sheet-y', emojiSheetY.toString());
+        }
+      }}
       alt={emojiName}
       className={cx(styles.emojiImag, emojiStyles.external, emojiStyles.common, className)}
       loading={lazyLoad ? 'lazy' : 'eager'}
